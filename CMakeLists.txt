@@ -11,3 +11,9 @@ target_include_directories(procinspect INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/inc
 # CLI executable.
 add_executable(proc-inspect src/main.cpp)
 target_link_libraries(proc-inspect PRIVATE procinspect)
+
+# Tests.
+enable_testing()
+add_executable(test_procinspect tests/test_procinspect.cpp)
+target_link_libraries(test_procinspect PRIVATE procinspect)
+add_test(NAME test_procinspect COMMAND test_procinspect)
